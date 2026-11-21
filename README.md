@@ -1,4 +1,19 @@
-# SmartCommute: full system
+# SmartCommute
+
+Multimodal commute planner for Bengaluru and Tumakuru: real BMTC, Metro and train timetables, cost and CO₂e ranges, carpools between registered colleagues, preference learning, and company tools (Census-based Digital Twin, incentive optimiser, shuttle planner). Built with FastAPI, React and PostgreSQL.
+
+**Quick start for teammates**
+1. `git clone https://github.com/meeksha/SmartCommute.git` and `cd SmartCommute`.
+2. Download `smartcommute-data.zip` from this repo's **Releases** and extract it into `transit-engine/` (it adds `transit-engine/data/raw` and `data/processed`).
+3. `copy .env.example .env`, then fill in the values you were sent privately.
+4. `docker compose up -d --build` and open http://localhost:8080.
+
+- **How everything works** (concepts, formulas, models, sources): [`docs/SmartCommute_Technical_Reference.docx`](docs/SmartCommute_Technical_Reference.docx).
+- **Sharing and deploying:** [`GIT_AND_DEPLOY.md`](GIT_AND_DEPLOY.md).
+
+---
+
+## Full system
 
 ```
 <your folder>/
