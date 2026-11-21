@@ -1,0 +1,100 @@
+﻿import json
+
+from app.routing.planner import plan_journey
+from app.routing.bmtc_latest_planner import plan_bmtc_latest_from_gps
+from app.routing.bmtc_metro_planner import plan_bmtc_then_metro
+
+from app.routing.journey_adapters import (
+    adapt_walking_metro,
+    adapt_bmtc_journeys,
+    adapt_bmtc_metro_journeys,
+)
+
+from app.routing.journey_schema import validate_journey
+
+
+ORIGIN_LAT = 13.0107901
+ORIGIN_LON = 77.5548862
+DESTINATION_LAT = 13.0218597
+DESTINATION_LON = 77.5671423
+
+TRAVEL_DATE = "2026-11-18"
+DEPARTURE_TIME = "09:00"
+
+
+def print_json(data):
+    print(json.dumps(data, indent=2, ensure_ascii=False, default=str))
+
+
+def test_planner(name, planner, adapter):
+    print("\n" + "=" * 75)
+    print(name)
+    print("=" * 75)
+
+    try:
+        result = planner(
+            ORIGIN_LAT,
+            ORIGIN_LON,
+            DESTINATION_LAT,
+            DESTINATION_LON,
+            TRAVEL_DATE,
+            DEPARTURE_TIME,
+        )
+
+        print("\nPLANNER STATUS:", result.get("status"))
+
+        if result.get("status") != "success":
+            print("PLANNER MESSAGE:", result.get("message"))
+            return
+
+        journeys = adapter(result)
+
+        print("\nADAPTED JOURNEYS:", len(journeys))
+
+        for index, journey in enumerate(journeys, start=1):
+            validation = validate_journey(journey)
+
+            print("\n" + "-" * 75)
+            print(f"JOURNEY {index}")
+            print("-" * 75)
+
+            print("Mode:", journey["mode"])
+            print("Duration:", journey["duration_minutes"], "minutes")
+            print("Walking:", journey["walking_distance_m"], "metres")
+            print("Transfers:", journey.get("transfers"))
+            print("Validation:", validation["status"])
+
+            print("\nCOMPLETE LEG DATA:")
+            for leg_number, leg in enumerate(journey["legs"], start=1):
+                print(f"\nLEG {leg_number}:")
+                print_json(leg)
+
+            if validation["status"] != "success":
+                print("\nVALIDATION DETAILS:")
+                print_json(validation)
+
+        assert journeys, "Planner succeeded but adapter returned no journeys."
+
+        print("\nADAPTER TEST PASSED")
+
+    except Exception as exc:
+        print("\nTEST FAILED:", type(exc).__name__, str(exc))
+
+
+test_planner(
+    "WALKING + METRO",
+    plan_journey,
+    adapt_walking_metro,
+)
+
+test_planner(
+    "BMTC BUS",
+    plan_bmtc_latest_from_gps,
+    adapt_bmtc_journeys,
+)
+
+test_planner(
+    "BMTC + METRO",
+    plan_bmtc_then_metro,
+    adapt_bmtc_metro_journeys,
+)

@@ -1,0 +1,44 @@
+# SmartCommute: PostgreSQL + transit engine (FastAPI) + React frontend (nginx).
+# This file sits next to the transit-engine/ and frontend/ folders. Put TOMTOM_API_KEY and
+# GOOGLE_CLIENT_ID in a .env file beside it, then:
+#   docker compose up --build        -> http://localhost:8080
+# Give Docker at least 6 GB RAM (the engine keeps the Bengaluru walking graph and
+# BMTC timetable in memory, ~4 GB).
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: smartcommute
+      POSTGRES_USER: smartcommute
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-smartcommute}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports: ["127.0.0.1:5432:5432"]          # only this computer can reach the database
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U smartcommute -d smartcommute"]
+      interval: 5s
+      retries: 10
+
+  backend:
+    build: ./transit-engine
+    environment:
+      DATABASE_URL: postgresql+psycopg://smartcommute:${POSTGRES_PASSWORD:-smartcommute}@db:5432/smartcommute
+      TOMTOM_API_KEY: ${TOMTOM_API_KEY:-}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      ADMIN_EMAILS: ${ADMIN_EMAILS:-}          # comma-separated emails that are company admins
+      COOKIE_SECURE: "false"
+    volumes:
+      - ./transit-engine/data:/app/data          # 1.4 GB GTFS/OSM data, not baked into the image
+      - ./transit-engine/models:/app/models
+      - ./certs:/app/certs:ro                    # extra root certificate(s) if your network inspects HTTPS
+    depends_on:
+      db: { condition: service_healthy }
+    ports: ["127.0.0.1:8000:8000"]          # the website reaches the API through nginx on 8080
+
+  frontend:
+    build: ./frontend
+    depends_on: [backend]
+    ports: ["8080:80"]
+
+volumes:
+  pgdata:

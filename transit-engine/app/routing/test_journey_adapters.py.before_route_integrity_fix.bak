@@ -1,0 +1,96 @@
+﻿from app.routing.journey_schema import validate_journey
+from app.routing.journey_adapters import (
+    adapt_walking_metro,
+    adapt_bmtc_journeys,
+    adapt_bmtc_metro_journeys
+)
+
+# Sample Walking + Metro result
+walking_metro = {
+    "status": "success",
+    "total_estimated_duration_minutes": 40.4,
+    "total_estimated_walking_metres": 630.7,
+    "origin_metro": {"walking_distance_m": 300},
+    "destination_metro": {"walking_distance_m": 330.7},
+    "metro_journey": {
+        "legs": [
+            {"route_name": "Purple Line", "from_station": "A",
+             "to_station": "B"}
+        ]
+    },
+    "metro_fare": {"token_fare_inr": 30},
+    "limitations": []
+}
+
+# Sample BMTC result with two alternatives
+bmtc = {
+    "status": "success",
+    "best_journey": {
+        "total_estimated_duration_minutes": 45,
+        "origin_access": {"distance_m": 200},
+        "destination_egress": {"distance_m": 150},
+        "bmtc_journey": {
+            "legs": [{"route_short_name": "49"}]
+        }
+    },
+    "alternative_journeys": [
+        {
+            "total_estimated_duration_minutes": 52,
+            "origin_access": {"distance_m": 250},
+            "destination_egress": {"distance_m": 180},
+            "bmtc_journey": {
+                "legs": [
+                    {"route_short_name": "258"},
+                    {"route_short_name": "82"}
+                ]
+            }
+        }
+    ]
+}
+
+# Sample BMTC + Metro result
+combined = {
+    "status": "success",
+    "limitations": [],
+    "best_journey": {
+        "total_estimated_duration_minutes": 48,
+        "total_estimated_walking_metres": 700,
+        "origin_access": {"distance_m": 200},
+        "destination_egress": {"distance_m": 200},
+        "interchange": {"walking_distance_m": 300},
+        "bmtc_journey": {
+            "legs": [{"route_short_name": "49"}]
+        },
+        "metro_journey": {
+            "legs": [{"route_name": "Green Line"}]
+        },
+        "fare": {"bmtc": {}, "metro": {}},
+        "emissions": {}
+    }
+}
+
+results = {
+    "Walking + Metro": adapt_walking_metro(walking_metro),
+    "BMTC Bus": adapt_bmtc_journeys(bmtc),
+    "BMTC + Metro": adapt_bmtc_metro_journeys(combined)
+}
+
+for mode, journeys in results.items():
+    print(f"\n{mode}: {len(journeys)} journey(s)")
+
+    for journey in journeys:
+        validation = validate_journey(journey)
+
+        print(
+            "Duration:", journey["duration_minutes"],
+            "| Legs:", len(journey["legs"]),
+            "| Transfers:", journey["transfers"],
+            "| Validation:", validation["status"]
+        )
+
+        assert validation["status"] == "success"
+
+assert len(results["BMTC Bus"]) == 2
+assert len(results["BMTC + Metro"]) == 1
+
+print("\nALL ADAPTER TESTS PASSED")

@@ -1,0 +1,41 @@
+train_no,name,kind,direction,days,stops,source
+66567,SBC-TK MEMU,memu,to_tumakuru,daily,SBC -09:20|MWM 09:25-09:26|YPR 09:31-09:33|BAW 09:42-09:43|SDVL 09:45-09:46|BNKH 10:00-10:01|DBL 10:06-10:07|NDV 10:16-10:17|DBS 10:20-10:21|HHL 10:28-10:29|KIAT 10:36-10:37|TK 11:05-,etrain.info schedule
+66571,SBC-TK MEMU,memu,to_tumakuru,daily,SBC -13:30|MWM 13:35-13:36|YPR 13:41-13:43|BAW 13:52-13:53|SDVL 13:55-13:56|BNKH 14:10-14:11|DBL 14:16-14:17|NDV 14:27-14:28|DBS 14:31-14:32|HHL 14:39-14:40|KIAT 14:46-14:47|TK 15:25-,etrain.info schedule
+66573,YPR-TK MEMU,memu,to_tumakuru,daily,YPR -05:00|BAW 05:09-05:10|DBL 05:29-05:30|KIAT 05:54-05:55|TK 06:10-,etrain.info schedule
+66569,YPR-TK MEMU,memu,to_tumakuru,daily,YPR -19:50|BAW 19:59-20:00|SDVL 20:03-20:04|BNKH 20:20-20:21|DBL 20:26-20:27|NDV 20:37-20:38|DBS 20:43-20:44|HHL 20:51-20:52|KIAT 20:59-21:00|TK 21:15-,etrain.info schedule
+66568,TK-SBC MEMU,memu,to_bengaluru,daily,TK -15:35|KIAT 15:41-15:42|HHL 15:47-15:48|DBS 15:54-15:55|NDV 15:58-15:59|DBL 16:09-16:10|BNKH 16:14-16:15|SDVL 16:28-16:29|BAW 16:32-16:33|YPR 16:43-16:45|MWM 16:50-16:51|SBC 17:25-,etrain.info schedule
+66572,TK-SBC MEMU,memu,to_bengaluru,daily,TK -11:35|KIAT 11:41-11:42|HHL 11:48-11:49|DBS 11:57-11:58|NDV 12:01-12:02|DBL 12:13-12:14|BNKH 12:18-12:19|SDVL 12:34-12:35|BAW 12:38-12:39|YPR 12:48-12:50|MWM 12:55-12:56|SBC 13:20-,etrain.info schedule
+66570,TK-YPR MEMU,memu,to_bengaluru,daily,TK -04:30|KIAT 04:36-04:37|HHL 04:44-04:45|NDV 04:55-04:56|DBL 05:06-05:07|BAW 05:28-05:29|YPR 05:45-,etrain.info schedule
+66574,TK-YPR MEMU,memu,to_bengaluru,daily,TK -08:00|KIAT 08:06-08:07|HHL 08:13-08:14|DBS 08:22-08:23|NDV 08:26-08:27|DBL 08:36-08:37|BNKH 08:42-08:43|SDVL 08:56-08:57|BAW 09:00-09:01|YPR 09:25-,etrain.info schedule
+56519,SBC-HPT Passenger,passenger,to_tumakuru,daily,SBC -05:00|TK 06:13-,erail.in trains between stations
+56281,CMNR-TK Passenger,passenger,to_tumakuru,daily,SBC -13:15|TK 15:05-,erail.in trains between stations
+56223,SBC-ASK Passenger,passenger,to_tumakuru,daily,SBC -18:10|TK 19:35-,erail.in trains between stations
+56224,ASK-SBC Passenger,passenger,to_bengaluru,daily,TK -07:26|SBC 09:20-,erail.in trains between stations
+56282,TK-CMNR Passenger,passenger,to_bengaluru,daily,TK -13:50|SBC 15:25-,erail.in trains between stations
+56520,HPT-SBC Passenger,passenger,to_bengaluru,daily,TK -20:25|SBC 22:55-,erail.in trains between stations
+12079,Janshatabdi Express,express,to_tumakuru,daily,SBC -06:00|YPR 06:10-06:12|TK 06:58-,etrain.info schedule
+20689,SMET Intercity Express,express,to_tumakuru,daily,YPR -09:15|TK 10:06-,erail.in trains between stations
+20676,Vishwamanav Express,express,to_tumakuru,daily,SBC -10:00|TK 10:52-,erail.in trains between stations
+12725,Siddaganga Express,express,to_tumakuru,daily,SBC -13:00|TK 13:58-,erail.in trains between stations
+20651,SBC-TLGP Express,express,to_tumakuru,daily,SBC -15:00|TK 16:00-,erail.in trains between stations
+17309,YPR-VSG Express,express,to_tumakuru,daily,YPR -15:30|TK 16:18-,erail.in trains between stations
+16240,YPR-CMGR Express,express,to_tumakuru,daily,YPR -15:40|TK 16:46-,erail.in trains between stations
+12089,Janshatabdi Express,express,to_tumakuru,daily,SBC -17:15|TK 18:13-,erail.in trains between stations
+16535,Golgumbaz Express,express,to_tumakuru,daily,SBC -18:30|TK 19:42-,erail.in trains between stations
+16545,YPR-SNNR Express,express,to_tumakuru,daily,YPR -20:25|TK 21:22-,erail.in trains between stations
+20653,SBC-BGM Express,express,to_tumakuru,daily,SBC -21:00|TK 21:53-,erail.in trains between stations
+16547,YPR-BJP Express,express,to_tumakuru,daily,YPR -21:30|TK 22:17-,erail.in trains between stations
+20688,SBC-UBL SF Express,express,to_tumakuru,daily,SBC -22:20|TK 23:17-,erail.in trains between stations
+16589,Rani Chennamma Express,express,to_tumakuru,daily,SBC -23:00|YPR 23:10-23:12|TK 23:56-,etrain.info schedule
+20687,UBL-SBC SF Express,express,to_bengaluru,daily,TK -04:40|SBC 06:50-,erail.in trains between stations
+16536,Golgumbaz Express,express,to_bengaluru,daily,TK -05:00|SBC 07:45-,erail.in trains between stations
+20654,BGM-SBC Express,express,to_bengaluru,daily,TK -05:22|SBC 07:30-,erail.in trains between stations
+16546,SNNR-YPR Express,express,to_bengaluru,daily,TK -05:46|YPR 08:05-,erail.in trains between stations
+12090,Janshatabdi Express,express,to_bengaluru,daily,TK -08:10|SBC 09:50-,erail.in trains between stations
+20652,TLGP-SBC Express,express,to_bengaluru,daily,TK -10:10|SBC 12:00-,erail.in trains between stations
+17310,VSG-YPR Express,express,to_bengaluru,daily,TK -10:37|YPR 12:35-,erail.in trains between stations
+12726,Siddaganga Express,express,to_bengaluru,daily,TK -11:55|SBC 14:15-,erail.in trains between stations
+16239,CMGR-YPR Express,express,to_bengaluru,daily,TK -12:07|YPR 14:30-,erail.in trains between stations
+20675,Vishwamanav Express,express,to_bengaluru,daily,TK -15:45|SBC 17:45-,erail.in trains between stations
+20690,YPR Intercity Express,express,to_bengaluru,daily,TK -18:52|YPR 20:35-,erail.in trains between stations
+12080,Janshatabdi Express,express,to_bengaluru,daily,TK -19:13|SBC 21:15-,erail.in trains between stations
