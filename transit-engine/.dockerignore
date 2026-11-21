@@ -1,0 +1,7 @@
+data
+cache
+models
+tests
+**/__pycache__
+*.bak
+.env

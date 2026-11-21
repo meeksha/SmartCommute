@@ -1,0 +1,13 @@
+code,name,lat,lon,coord_source
+SBC,KSR Bengaluru City,12.97821,77.56983,BMTC GTFS stop 'KSR Railway Station'
+MWM,Malleswaram,13.00075,77.56321,BMTC GTFS stop 'Malleshwaram Railway Station'
+YPR,Yesvantpur Jn,13.02160,77.55331,BMTC GTFS stop 'Yeshawanthapura Railway Station'
+BAW,Chikkabanavara,13.07547,77.50469,BMTC GTFS stop 'Chikkabanavara Railway Station'
+SDVL,Soldevanahalli,13.091395,77.490385,Wikipedia 'Soldevanahalli railway station'
+BNKH,Bhairanayakanahalli,13.19406,77.38192,BMTC GTFS stop 'Byranayakanahalli Railway Station'
+DBL,Dodbele,13.21695,77.35179,BMTC GTFS stop 'Doddabele Railway Station'
+NDV,Nidvanda,13.245142,77.273126,Wikipedia 'Nidvanda railway station'
+DBS,Dobbspet,13.23318,77.249155,Wikipedia 'Dobbspet railway station'
+HHL,Hirehalli,13.281576,77.188764,Wikipedia 'Hirehalli railway station'
+KIAT,Kyatsandra,13.316196,77.148113,Wikipedia 'Kyatsandra railway station'
+TK,Tumakuru,13.3339,77.10196,OpenStreetMap node 853131485 (via mapcarta)

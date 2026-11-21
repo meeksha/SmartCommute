@@ -1,0 +1,199 @@
+ward_no,ward_name,population_2011,area_km2,lat,lon,location_source
+1,Kempegowda Ward,34783,10.9,13.1101,77.60147,KGIS ward boundary: Kempegowda Ward
+2,Chowdeshwari Ward,36602,6.5,13.12253,77.57502,KGIS ward boundary: Chowdeswari Ward
+3,Attur,58129,8.8,13.09886,77.5672,BMTC stop(s) named 'Atturu Layout'
+4,Yelahanka Satellite Town,41986,4.6,13.09058,77.58861,KGIS ward boundary: Yelahanka Satellite Town
+5,Jakkur,52025,23.5,13.06623,77.61648,KGIS ward boundary: Jakkuru
+6,Thanisandra,71855,10.0,13.06132,77.63364,KGIS ward boundary: Thanisandra
+7,Byatarayanapura,72154,10.0,13.07822,77.5734,KGIS ward boundary: Byatarayanapura
+8,Kodigehalli,47546,3.8,13.05619,77.57522,KGIS ward boundary: Kodigehalli
+9,Vidyaranyapura,57195,9.9,13.0747,77.55853,KGIS ward boundary: Vidyaranyapura
+10,Doddabommasandra,36396,4.2,13.05507,77.55911,KGIS ward boundary: Dodda Bommasandra
+11,Kuvempunagar,37128,7.1,13.07207,77.54167,KGIS ward boundary: Kuvempunagar
+12,Shettyhalli,61071,8.1,13.06192,77.5178,KGIS ward boundary: Shettihalli
+13,Mallasandra,41482,1.3,13.05385,77.51512,KGIS ward boundary: Mallasandra
+14,Bagalagunte,65113,4.3,13.05556,77.49648,KGIS ward boundary: Bagalakunte
+15,T. Dasarahalli,33042,0.9,13.04517,77.51359,KGIS ward boundary: T Dasarahalli
+16,Jalahalli,37959,5.2,13.04479,77.53493,BMTC stop(s) named 'CS-ISRO Quarters Jalahalli'
+17,J. P. Park,49610,2.0,13.03614,77.54934,KGIS ward boundary: J P Park
+18,Radhakrishna Temple,35122,1.9,13.03698,77.56883,KGIS ward boundary: Radhakrishna Temple Ward
+19,Sanjaynagar,32491,1.5,13.03554,77.5803,KGIS ward boundary: Sanjaya Nagar
+20,Ganganagar,27361,2.3,13.02309,77.58869,KGIS ward boundary: Ganga Nagar
+21,Hebbala,32516,1.2,13.03337,77.59378,KGIS ward boundary: Hebbala
+22,Vishwanatha Nagenahalli,51592,1.5,13.03603,77.6063,KGIS ward boundary: Vishwanath Nagenahalli
+23,Nagavara,60483,2.1,13.03188,77.61752,KGIS ward boundary: Nagavara
+24,HBR Layout,58967,4.6,13.01988,77.63756,KGIS ward boundary: HRBR Layout
+25,Horamavu,95368,17.5,13.05496,77.66039,KGIS ward boundary: Horamavu
+26,Ramamurthynagar,47358,7.3,13.01166,77.67631,KGIS ward boundary: Ramamurthy Nagara
+27,Banaswadi,51268,3.4,13.01131,77.64604,BMTC stop(s) named 'Banaswadi Fire Station'
+28,Kammanahalli,47074,1.0,13.00918,77.63784,KGIS ward boundary: Kammanahalli
+29,Kacharakanahalli,33588,1.7,13.01951,77.62678,KGIS ward boundary: Kacharkanahalli
+30,Kadugondanahalli,45748,0.7,13.02492,77.6194,KGIS ward boundary: Kadugondanahalli
+31,Kushalnagar,41936,0.6,13.02425,77.61057,KGIS ward boundary: Kushal Nagar
+32,Kavalbyrasandra,39334,1.6,13.02333,77.60419,KGIS ward boundary: Kaval Bairasandra
+33,Manorayanapalya,47926,0.8,13.03304,77.60248,KGIS ward boundary: Manorayanapalya
+34,Gangenahalli,24308,1.1,13.02301,77.58424,BMTC stop(s) named 'Gangenahalli'
+35,Aramanenagar,36738,7.5,13.01648,77.57286,KGIS ward boundary: Aramane Nagara
+36,Mathikere,37036,0.9,13.03135,77.56133,KGIS ward boundary: Mattikere
+37,Yeshwanthpura,41107,0.8,13.02696,77.54168,interpolated: centre of neighbouring wards (no named stop/boundary found)
+38,H. M. T.,36879,5.2,13.05006,77.53888,BMTC stop(s) named 'Shopping Complex HMT'
+39,Chokkasandra,59289,3.8,13.03631,77.50239,KGIS ward boundary: Chokkasandra
+40,Dodda Bidarkallu,72794,12.9,13.02765,77.48759,KGIS ward boundary: Dodda Bidarakallu
+41,Peenya Industrial Area,57814,5.5,13.02901,77.51884,BMTC stop(s) named 'TVS Cross Peenya'
+42,Lakshmidevinagar,41352,1.5,13.01533,77.52659,KGIS ward boundary: Lakshmi Devi Nagar
+43,Nandini Layout,51200,1.4,13.01569,77.53511,KGIS ward boundary: Nandini Layout
+44,Marappana Palya,40212,2.0,13.01894,77.54646,KGIS ward boundary: Marappana Palya
+45,Malleshwaram,34196,1.8,13.01749,77.5578,KGIS ward boundary: Malleswaram
+46,Jayachamarajendranagar,31449,0.9,13.01558,77.58772,KGIS ward boundary: Jayachamarajendra  Nagar
+47,Devarajeevanahalli,42135,1.4,13.01421,77.6064,KGIS ward boundary: Devara Jeevanahalli
+48,Muneshwaranagar,35814,0.5,13.01483,77.61365,KGIS ward boundary: Muneshwara Nagar
+49,Lingarajapuram,37955,0.9,13.00571,77.62395,KGIS ward boundary: Lingarajapura
+50,Benniganahalli,49094,4.9,12.99566,77.66303,BMTC stop(s) named 'Benniganahalli Bridge'
+51,Vijinapura,46159,2.1,13.00472,77.6706,KGIS ward boundary: Vijinapura
+52,Krishnarajapuram,35168,4.8,13.00015,77.67696,BMTC stop(s) named 'KR Pura Metro Station'
+53,Basavanapura,48585,6.3,13.01405,77.71897,KGIS ward boundary: Basavanapura
+54,Hoodi,50191,15.0,12.99141,77.71482,BMTC stop(s) named 'Hoodi Metro Station'
+55,Devasandra,33946,3.5,12.99977,77.69075,KGIS ward boundary: Devasandra
+56,A. Narayanapura,43443,2.1,12.99305,77.67002,KGIS ward boundary: A Narayanapura
+57,C. V. Raman Nagar,58815,3.6,12.99568,77.66212,KGIS ward boundary: C V Raman Nagar
+58,Hosathippasandra,43983,3.4,12.97327,77.64826,BMTC stop(s) named 'Thippasandra'
+59,Maruthisevanagar,40362,2.4,12.9995,77.63264,KGIS ward boundary: Maruthi Seva Nagar
+60,Sagayarapuram,35334,0.8,13.00528,77.61636,KGIS ward boundary: Sagayarapuram
+61,S. K. Garden,38050,1.3,13.00759,77.60807,KGIS ward boundary: S K Garden
+62,Ramaswamypalya,34394,0.8,13.00184,77.60093,KGIS ward boundary: Ramaswamy Palya
+63,Jayamahal,21728,1.4,12.99752,77.59722,KGIS ward boundary: Jayamahal
+64,Rajamahal,31118,0.7,13.00612,77.58021,BMTC stop(s) named 'IIHS Sadashivanagara'
+65,Kadumalleshwara,35609,1.4,13.00243,77.5662,KGIS ward boundary: Kadu Malleshwara
+66,Subrahmanyanagar,35709,0.9,13.00797,77.55727,KGIS ward boundary: Subramanya Nagar
+67,Nagapura,34575,1.8,13.00573,77.5484,KGIS ward boundary: Nagapura
+68,Mahalakshmipuram,44615,0.9,13.00758,77.53915,KGIS ward boundary: Mahalakshimpuram
+69,Laggere,57077,1.6,13.00884,77.52615,BMTC stop(s) named 'Laggere Bridge'
+70,Rajagopalanagar,61479,2.2,13.02452,77.5185,KGIS ward boundary: Rajagopal Nagar
+71,Hegganahalli,66314,1.8,13.00333,77.51069,KGIS ward boundary: Hegganahalli
+72,Herohalli,62272,7.8,12.98848,77.49121,KGIS ward boundary: Herohalli
+73,Kottigepalya,68922,5.8,12.987,77.51311,BMTC stop(s) named 'Kottigepalya'
+74,Shakthiganapathinagar,43844,0.7,12.99397,77.53118,KGIS ward boundary: Shakthi Ganapathi Nagar
+75,Shankara Matha,48734,1.1,13.00045,77.54121,BMTC stop(s) named 'Shankar Mutt'
+76,Gayathrinagar,33236,0.6,12.99765,77.56232,KGIS ward boundary: Gayithri Nagar
+77,Dattathreya Temple,33388,0.7,12.99763,77.57488,KGIS ward boundary: Dattatreya Temple
+78,Pulakeshinagar,28835,1.7,12.99684,77.61229,KGIS ward boundary: Pulikeshinagar
+79,Sarvagnanagar,37291,3.6,12.98853,77.62716,interpolated: centre of neighbouring wards (no named stop/boundary found)
+80,Hoysalanagar,35228,2.1,12.97985,77.63608,KGIS ward boundary: Hoysala Nagar
+81,Vignananagar,57062,5.7,12.96911,77.67407,KGIS ward boundary: Vijnana Nagar
+82,Garudacharpalya,49631,6.8,12.99009,77.70333,KGIS ward boundary: Garudachar Playa
+83,Kadugudi,43942,11.2,12.99375,77.76843,KGIS ward boundary: Kadugodi
+84,Hagadooru,50556,12.6,12.97058,77.70314,interpolated: centre of neighbouring wards (no named stop/boundary found)
+85,Doddanekkundi,63083,12.0,12.9717,77.69696,KGIS ward boundary: Dodda Nekkundi
+86,Marathahalli,39768,3.1,12.9405,77.69968,KGIS ward boundary: Marathahalli
+87,HAL Airport,39926,6.8,12.95835,77.67639,KGIS ward boundary: HAL Airport
+88,Jeevanabima Nagar,38251,1.9,12.95704,77.64867,KGIS ward boundary: Jeevanbhima Nagar
+89,Jogupalya,33793,0.9,12.97306,77.63022,KGIS ward boundary: Jogupalya
+90,Ulsoor,35090,1.7,12.9805,77.61849,KGIS ward boundary: Ulsoor
+91,Bharathinagar,32689,0.8,12.98918,77.61103,KGIS ward boundary: Bharathi Nagar
+92,Shivajinagar,37506,0.4,12.98893,77.54998,KGIS ward boundary: Shivanagara
+93,Vasanthnagar,22815,3.1,12.98769,77.58991,KGIS ward boundary: Vasanth Nagar
+94,Gandhinagar,31208,1.9,12.98291,77.57443,KGIS ward boundary: Gandhinagar
+95,Subhashnagar,37693,1.3,12.98286,77.57007,KGIS ward boundary: Subhash Nagar
+96,Okalipuram,38110,0.8,12.98207,77.56433,KGIS ward boundary: Okalipuram
+97,Dayanandanagar,35721,0.4,12.99111,77.56451,KGIS ward boundary: Dayananda Nagar
+98,Prakashnagar,32913,0.6,12.99056,77.55982,KGIS ward boundary: Prakash Nagar
+99,Rajajinagar,33084,0.9,12.99404,77.5507,KGIS ward boundary: Rajaji Nagar
+100,Basaveshwaranagar,30333,0.8,12.99221,77.5423,KGIS ward boundary: Basaveshwara Nagar
+101,Kamakshipalya,30051,0.9,12.98664,77.53341,KGIS ward boundary: Kamakshipalya
+102,Vrishabhavathi,50893,1.0,12.98561,77.53726,interpolated: centre of neighbouring wards (no named stop/boundary found)
+103,Kaveripura,53532,1.7,12.98162,77.52543,KGIS ward boundary: Kaveripura
+104,Govindarajanagar,26873,0.8,12.97749,77.5317,KGIS ward boundary: Govindaraja Nagar
+105,Agrahara Dasarahalli,28355,0.8,12.98167,77.54002,KGIS ward boundary: Agrahara Dasarahalli
+106,Dr. Rajkumar,24181,1.0,12.97934,77.54888,KGIS ward boundary: Dr. Raj Kumar Ward
+107,Shivanagar,36461,0.8,12.98893,77.54998,KGIS ward boundary: Shivanagara
+108,Srirama Mandir,33866,1.1,12.98392,77.55465,KGIS ward boundary: Sriramamandir
+109,Chickpete,33292,0.7,12.9705,77.57655,KGIS ward boundary: Chickpete
+110,Sampangiramanagar,27504,4.4,12.97492,77.58964,KGIS ward boundary: Sampangiram Nagar
+111,Shanthalanagar,22995,4.0,12.96938,77.60716,KGIS ward boundary: Shantala Nagar
+112,Domlur,30638,1.7,12.96244,77.63489,KGIS ward boundary: Domlur
+113,Konena Agrahara,38108,2.1,12.95769,77.65858,KGIS ward boundary: Konena Agrahara
+114,Agaram,36916,11.0,12.94482,77.63866,KGIS ward boundary: Agaram
+115,Vannarpet,37060,0.8,12.95732,77.61659,KGIS ward boundary: Vannarapete
+116,Neelasandra,48534,0.5,12.95769,77.60647,KGIS ward boundary: Neelasandra
+117,Shanthinagar,42095,2.7,12.95624,77.59689,KGIS ward boundary: Shanthi Nagar
+118,Sudhamanagar,28784,1.0,12.95713,77.58343,KGIS ward boundary: Sudham Nagara
+119,Dharmarayaswamy Temple,27076,1.1,12.96482,77.58239,KGIS ward boundary: Dharmaraya Swamy Temple Ward
+120,Cottonpet,37344,0.8,12.97108,77.56384,KGIS ward boundary: Cottonpete
+121,Binnipete,37354,0.8,12.97232,77.55967,KGIS ward boundary: Binnipete
+122,Kempapura Agrahara,40032,0.4,12.97236,77.55555,KGIS ward boundary: Kempapura Agrahara
+123,Vijaynagar,40331,0.7,12.97189,77.55035,KGIS ward boundary: Vijayanagar
+124,Hosahalli,37347,0.9,12.9692,77.54444,KGIS ward boundary: Hosahalli
+125,Marenahalli,21171,0.7,12.97202,77.53306,KGIS ward boundary: Marenahalli
+126,Maruthi Mandira,29319,0.8,12.9668,77.52973,KGIS ward boundary: Maruthi Mandir ward
+127,Moodalapalya,43729,1.0,12.9727,77.52337,KGIS ward boundary: Mudalapalya
+128,Nagarabhavi,35780,1.6,12.95976,77.51746,KGIS ward boundary: Nagarabhavi
+129,Jnanabharathi,68132,11.9,12.94787,77.50572,KGIS ward boundary: Jnana Bharathi
+130,Ullalu,58199,8.7,12.94264,77.48883,KGIS ward boundary: Ullal
+131,Nayandahalli,42785,2.1,12.94436,77.52448,KGIS ward boundary: Nayandahalli
+132,Attiguppe,41487,1.4,12.95788,77.53082,KGIS ward boundary: Attiguppe
+133,Hampinagar,35113,1.1,12.96224,77.53988,KGIS ward boundary: Hampi Nagar
+134,Bapujinagar,49484,0.7,12.95925,77.54365,KGIS ward boundary: Bapuji Nagar
+135,Padarayanapura,37599,0.3,12.96245,77.55277,KGIS ward boundary: Padarayanapura
+136,Jagjivanram Nagar,38639,0.6,12.9648,77.55668,KGIS ward boundary: Jagajivanaram Nagar
+137,Rayapuram,36039,0.4,12.96231,77.55839,interpolated: centre of neighbouring wards (no named stop/boundary found)
+138,Chalavadipalya,24801,0.4,12.96429,77.56705,KGIS ward boundary: Chalavadipalya
+139,Krishnarajendra Market,29344,0.8,12.96333,77.57679,BMTC stop(s) named 'KR Market'
+140,Chamarajapet,32213,1.0,12.96075,77.5718,KGIS ward boundary: Chamrajapet
+141,Azadnagar,38825,0.7,12.95455,77.5532,KGIS ward boundary: Azad Nagar
+142,Sunkenahalli,34666,1.5,12.94822,77.56788,KGIS ward boundary: Sunkenahalli
+143,Visvesvarapuram,32462,2.5,12.95045,77.58189,KGIS ward boundary: Vishveshwara Puram
+144,Siddapura,34879,0.7,12.94627,77.58876,BMTC stop(s) named 'Siddapura Ashoka Pillar'
+145,Hombegowdanagar,38309,1.4,12.94949,77.59813,KGIS ward boundary: Hombegowda Nagara
+146,Lakkasandra,30667,1.3,12.94357,77.61356,KGIS ward boundary: Lakkasandra
+147,Adugodi,34299,1.6,12.93432,77.61801,KGIS ward boundary: Adugodi
+148,Ejipura,47004,1.9,12.94284,77.62835,KGIS ward boundary: Ejipura
+149,Varthur,54625,28.3,12.93444,77.74251,KGIS ward boundary: Varthuru
+150,Bellandur,80180,26.4,12.9379,77.67698,KGIS ward boundary: Bellanduru
+151,Koramangala,38316,3.7,12.93558,77.62578,KGIS ward boundary: Koramangala
+152,Suddaguntepalya,39997,1.7,12.93118,77.60528,KGIS ward boundary: Suddagunte Palya
+153,Jayanagar,38151,2.5,12.97189,77.55035,KGIS ward boundary: Vijayanagar
+154,Basavanagudi,32640,1.2,12.93683,77.56902,KGIS ward boundary: Basavanagudi
+155,Hanumanthanagar,36982,1.0,12.94356,77.56205,KGIS ward boundary: Hanumanth Nagar
+156,Srinagar,41379,0.8,12.94364,77.55341,KGIS ward boundary: Srinagar
+157,Gali Anjaneya Temple,34653,1.1,12.93171,77.53833,interpolated: centre of neighbouring wards (no named stop/boundary found)
+158,Deepanjalinagar,45928,2.1,12.95251,77.53676,BMTC stop(s) named 'Deepanjalinagara'
+159,Kengeri,40771,5.1,12.92339,77.4857,KGIS ward boundary: Kengeri
+160,Rajarajeshwarinagar,56897,11.1,12.91113,77.52146,KGIS ward boundary: Rajarajeshwari Nagar
+161,Hosakerehalli,46805,1.3,12.92972,77.53894,KGIS ward boundary: Hosakerehalli
+162,Girinagar,43195,1.8,12.93944,77.54497,KGIS ward boundary: Girinagar
+163,Kathriguppe,45572,1.1,12.93064,77.54872,KGIS ward boundary: Katriguppe
+164,Vidyapeetha,43483,1.2,12.92984,77.55705,KGIS ward boundary: Vidyapeeta ward
+165,Ganesh Mandira,25998,1.6,12.92341,77.56256,KGIS ward boundary: Ganesh Mandir ward
+166,Karisandra,27040,1.1,12.92953,77.56654,interpolated: centre of neighbouring wards (no named stop/boundary found)
+167,Yediyur,32756,1.2,12.93514,77.57936,KGIS ward boundary: Yediyur
+168,Pattabhiramnagar,28353,1.7,12.92756,77.57956,interpolated: centre of neighbouring wards (no named stop/boundary found)
+169,Byrasandra,32066,0.9,12.92863,77.58503,KGIS ward boundary: Byrasandra
+170,Jayanagar East,33927,1.0,12.92673,77.59841,interpolated: centre of neighbouring wards (no named stop/boundary found)
+171,Gurappanapalya,42624,0.7,12.92107,77.60431,KGIS ward boundary: Gurappanapalya
+172,Madiwala,42694,1.2,12.92725,77.61273,KGIS ward boundary: Madivala
+173,Jakkasandra,33521,1.5,12.92075,77.6295,KGIS ward boundary: Jakkasandra
+174,HSR Layout,63033,7.1,12.91514,77.63321,BMTC stop(s) named 'SI Apartment HSR Layout'
+175,Bommanahalli,43585,1.8,12.90142,77.62054,KGIS ward boundary: Bommanahalli
+176,BTM Layout,52250,2.1,12.91465,77.61319,KGIS ward boundary: BTM Layout
+177,J. P. Nagar,28846,1.8,12.91082,77.58897,KGIS ward boundary: J P Nagar
+178,Sarakki,31034,1.3,12.90909,77.58403,KGIS ward boundary: Sarakki
+179,Shakambarinagar,25871,1.9,12.91733,77.58149,KGIS ward boundary: Shakambari Nagar
+180,Banashankari Temple,42171,0.7,12.91251,77.57069,KGIS ward boundary: Banashankari Temple ward
+181,Kumaraswamy Layout,47182,1.8,12.91209,77.56537,KGIS ward boundary: Kumaraswamy Layout
+182,Padmanabhanagar,41037,1.7,12.91545,77.55664,KGIS ward boundary: Padmanabha Nagar
+183,Chikkalasandra,43364,1.1,12.90889,77.56488,interpolated: centre of neighbouring wards (no named stop/boundary found)
+184,Uttarahalli,57209,9.9,12.90981,77.55265,KGIS ward boundary: Uttarahalli
+185,Yelachenahalli,46943,1.6,12.90318,77.56841,KGIS ward boundary: Yelachenahalli
+186,Jaraganahalli,38294,1.3,12.90028,77.57552,KGIS ward boundary: Jaraganahalli
+187,Puttenahalli,49207,2.9,12.89684,77.58409,BMTC stop(s) named 'Puttenahalli'
+188,Bilekahalli,49884,4.3,12.90184,77.61287,KGIS ward boundary: Bilekhalli
+189,Hongasandra,68554,2.1,12.89862,77.62689,KGIS ward boundary: Hongasandra
+190,Mangammanapalya,65890,3.5,12.90062,77.63969,KGIS ward boundary: Mangammanapalya
+191,Singasandra,71004,9.7,12.89333,77.64103,KGIS ward boundary: HSR - Singasandra
+192,Begur,80037,19.0,12.87196,77.63359,KGIS ward boundary: Begur
+193,Arakere,58355,6.6,12.88579,77.60758,KGIS ward boundary: Arakere
+194,Gottigere,51911,7.4,12.85504,77.58624,KGIS ward boundary: Gottigere
+195,Konanakunte,57335,3.4,12.8826,77.56155,KGIS ward boundary: Konanakunte
+196,Anjanapura,45608,11.4,12.86139,77.56314,KGIS ward boundary: Anjanapura
+197,Vasanthapura,62057,5.7,12.89228,77.55316,KGIS ward boundary: Vasanthpura
+198,Hemmigepura,50440,30.5,12.88139,77.50667,KGIS ward boundary: Hemmigepura

@@ -1,0 +1,108 @@
+{
+  "trained_at": "2026-11-19T14:13:30.255474+00:00",
+  "data": {
+    "source": "Namma Yatri open data: ward-level hourly trends + ward driver availability",
+    "train_dates": [
+      "2025-06-03",
+      "2025-06-09"
+    ],
+    "test_date": "2025-06-10",
+    "wards": 244,
+    "rows": 16592
+  },
+  "features": [
+    "hour_sin",
+    "hour_cos",
+    "hour_f",
+    "ward_log_volume",
+    "ward_log_drivers",
+    "ward_onride_share",
+    "ward_quote_rate",
+    "ward_fare"
+  ],
+  "params": {
+    "max_iter": 300,
+    "learning_rate": 0.06,
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 40,
+    "l2_regularization": 1.0,
+    "random_state": 42
+  },
+  "targets": {
+    "demand": {
+      "description": "log1p(searches) per ward-hour",
+      "train_rows": 11712,
+      "test_rows": 4880,
+      "model": {
+        "rmse": 0.6079,
+        "mae": 0.4363,
+        "r2": 0.8912
+      },
+      "baseline_hour_of_day": {
+        "rmse": 1.1777,
+        "mae": 0.9384,
+        "r2": 0.5916
+      },
+      "rmse_improvement_pct": 48.4,
+      "champion": "model"
+    },
+    "quote_rate": {
+      "description": "share of quote searches that got a driver quote",
+      "train_rows": 10558,
+      "test_rows": 4272,
+      "model": {
+        "rmse": 0.1175,
+        "mae": 0.087,
+        "r2": 0.752
+      },
+      "baseline_hour_of_day": {
+        "rmse": 0.22,
+        "mae": 0.1719,
+        "r2": 0.1301
+      },
+      "rmse_improvement_pct": 46.6,
+      "champion": "model"
+    },
+    "completion": {
+      "description": "completed rides / bookings",
+      "train_rows": 10377,
+      "test_rows": 4196,
+      "model": {
+        "rmse": 0.1302,
+        "mae": 0.0811,
+        "r2": 0.2937
+      },
+      "baseline_hour_of_day": {
+        "rmse": 0.145,
+        "mae": 0.0977,
+        "r2": 0.1241
+      },
+      "rmse_improvement_pct": 10.2,
+      "champion": "model"
+    },
+    "fare": {
+      "description": "earnings per completed ride (INR)",
+      "train_rows": 10156,
+      "test_rows": 4010,
+      "model": {
+        "rmse": 30.5949,
+        "mae": 18.2353,
+        "r2": 0.6987
+      },
+      "baseline_hour_of_day": {
+        "rmse": 49.0626,
+        "mae": 33.9427,
+        "r2": 0.2252
+      },
+      "rmse_improvement_pct": 37.6,
+      "champion": "model"
+    }
+  },
+  "mlflow": {
+    "tracking_uri": "sqlite:///mlflow.db",
+    "experiment": "smartcommute_ride_hailing",
+    "run_id": "3d0bd59fb4774bdfbe6704dd88ab5692"
+  },
+  "version": "20261119141346",
+  "train_seconds": 18.6
+}

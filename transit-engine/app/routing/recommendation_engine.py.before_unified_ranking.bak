@@ -1,0 +1,257 @@
+from app.routing.planner import plan_journey
+from app.routing.bmtc_latest_planner import plan_bmtc_latest_from_gps
+from app.routing.bmtc_fares import calculate_bmtc_journey_fare
+from app.routing.tomtom_traffic import calculate_road_route
+from app.services.carbon import (
+    calculate_emissions,
+    calculate_bmtc_journey_distance,
+    calculate_bmtc_emission_scenarios
+)
+
+
+def get_recommendations(
+    origin_lat,
+    origin_lon,
+    destination_lat,
+    destination_lon,
+    travel_date,
+    departure_time
+):
+    recommendations = []
+    errors = []
+
+    # 1. Walking + Metro
+    try:
+        metro = plan_journey(
+            origin_lat,
+            origin_lon,
+            destination_lat,
+            destination_lon,
+            travel_date,
+            departure_time
+        )
+
+        if metro.get("status") == "success":
+            metro_distance = metro.get("metro_fare", {}).get("distance_km")
+
+            metro_emissions = (
+                calculate_emissions(metro_distance, "metro_ips")
+                if metro_distance is not None else None
+            )
+
+            recommendations.append({
+                "mode": "Walking + Metro",
+                "duration_minutes": metro[
+                    "total_estimated_duration_minutes"
+                ],
+                "distance_walking_m": metro[
+                    "total_estimated_walking_metres"
+                ],
+                "fare": metro.get("metro_fare"),
+                "emissions": metro_emissions,
+                "data_type": "Scheduled Metro + modelled walking",
+                "details": metro
+            })
+        else:
+            errors.append({
+                "mode": "Walking + Metro",
+                "message": metro.get("message", "Route unavailable")
+            })
+
+    except Exception as exc:
+        errors.append({
+            "mode": "Walking + Metro",
+            "message": str(exc)
+        })
+
+    # 2. BMTC
+    try:
+        bmtc = plan_bmtc_latest_from_gps(
+            origin_lat,
+            origin_lon,
+            destination_lat,
+            destination_lon,
+            travel_date,
+            departure_time
+        )
+
+        if bmtc.get("status") == "success":
+            best = bmtc["best_journey"]
+
+            bmtc_legs = best["bmtc_journey"].get("legs", [])
+
+            bmtc_fare = calculate_bmtc_journey_fare(bmtc_legs)
+            bmtc_distance = calculate_bmtc_journey_distance(bmtc_legs)
+
+            bmtc_emissions = (
+                calculate_bmtc_emission_scenarios(
+                    bmtc_distance["distance_km"]
+                )
+                if bmtc_distance.get("status") == "success"
+                else bmtc_distance
+            )
+
+            recommendations.append({
+                "mode": "BMTC Bus",
+                "duration_minutes": best[
+                    "total_estimated_duration_minutes"
+                ],
+                "distance_walking_m": (
+                    best["origin_access"]["distance_m"]
+                    + best["destination_egress"]["distance_m"]
+                ),
+                "bus_distance_km": bmtc_distance.get("distance_km"),
+                "fare": bmtc_fare,
+                "emissions": bmtc_emissions,
+                "data_type": "2026-2027 BMTC scheduled timetable",
+                "details": bmtc
+            })
+        else:
+            errors.append({
+                "mode": "BMTC Bus",
+                "message": bmtc.get("message", "Route unavailable")
+            })
+
+    except Exception as exc:
+        errors.append({
+            "mode": "BMTC Bus",
+            "message": str(exc)
+        })
+
+    # 3. TomTom road routing
+    for mode, label in [
+        ("car", "Private Car"),
+        ("taxi", "Taxi / Auto-like road estimate")
+    ]:
+        try:
+            road = calculate_road_route(
+                (origin_lat, origin_lon),
+                (destination_lat, destination_lon),
+                travel_mode=mode
+            )
+
+            vehicle_type = (
+                "private_car_petrol"
+                if mode == "car"
+                else "ride_hailing_diesel"
+            )
+
+            road_emissions = calculate_emissions(
+                road["distance_km"],
+                vehicle_type
+            )
+
+            recommendations.append({
+                "mode": label,
+                "duration_minutes": road["traffic_duration_min"],
+                "distance_km": road["distance_km"],
+                "traffic_delay_minutes": road["traffic_delay_min"],
+                "emissions": road_emissions,
+                "data_type": "TomTom live-traffic routing estimate",
+                "details": road
+            })
+
+        except Exception as exc:
+            errors.append({
+                "mode": label,
+                "message": str(exc)
+            })
+
+    recommendations.sort(
+        key=lambda item: item["duration_minutes"]
+    )
+
+    return {
+        "status": (
+            "success" if recommendations else "unavailable"
+        ),
+        "travel_date": travel_date,
+        "departure_time": departure_time,
+        "recommendations": recommendations,
+        "errors": errors,
+        "comparison_count": len(recommendations),
+        "important_notes": [
+            "BMTC uses a community-published GTFS schedule valid from 2026-11-09 to 2027-11-09; it does not provide live bus tracking.",
+            "Metro results use the published standard GTFS timetable.",
+            "TomTom road estimates use its live-traffic routing request.",
+            "Taxi routing is not a verified auto-rickshaw fare or route.",
+            "No live BMTC bus or Metro train positions are available.",
+            "Carpool and company shuttle matching are not integrated yet."
+        ]
+    }
+
+
+if __name__ == "__main__":
+    result = get_recommendations(
+        origin_lat=12.9585,
+        origin_lon=77.5635,
+        destination_lat=13.0105,
+        destination_lon=77.5540,
+        travel_date="2026-11-18",
+        departure_time="08:00"
+    )
+
+    print("\nMULTIMODAL COMMUTE RECOMMENDATIONS")
+    print("==================================")
+    print("Status:", result["status"])
+    print("Options compared:", result["comparison_count"])
+
+    for index, option in enumerate(
+        result["recommendations"], start=1
+    ):
+        print(f"\n{index}. {option['mode']}")
+        print("Duration:", option["duration_minutes"], "minutes")
+        print("Data:", option["data_type"])
+
+        if "distance_km" in option:
+            print("Distance:", option["distance_km"], "km")
+
+        if "distance_walking_m" in option:
+            print("Walking:", option["distance_walking_m"], "m")
+
+        if option.get("bus_distance_km") is not None:
+            print("Bus distance:", option["bus_distance_km"], "km")
+
+        emissions = option.get("emissions")
+
+        if emissions and emissions.get("status") == "success":
+            if option["mode"] == "BMTC Bus":
+                print("BMTC emissions scenarios:")
+                for name, scenario in emissions["scenarios"].items():
+                    print(
+                        " ", name, ":",
+                        scenario["emissions_kg_co2e"], "kg CO2e"
+                    )
+            else:
+                print(
+                    "Estimated emissions:",
+                    emissions["emissions_kg_co2e"],
+                    "kg CO2e/passenger"
+                )
+
+        if option.get("fare") and option["fare"].get("status") == "success":
+            fare = option["fare"]
+
+            if option["mode"] == "Walking + Metro":
+                print("Metro distance:", fare["distance_km"], "km")
+                print("Token fare: Rs.", fare["token_fare_inr"])
+                print("Smart Card / QR fare: Rs.", fare["smart_card_qr_fare_inr"])
+
+            elif option["mode"] == "BMTC Bus":
+                for leg in fare["legs"]:
+                    print(
+                        "Route", leg.get("route"),
+                        "fare: Rs.", leg.get("fare_inr")
+                    )
+                print("Total BMTC fare: Rs.", fare["total_fare_inr"])
+
+    if result["errors"]:
+        print("\nUNAVAILABLE OPTIONS")
+        for error in result["errors"]:
+            print(error["mode"] + ":", error["message"])
+
+    print("\nDATA LIMITATIONS")
+    for note in result["important_notes"]:
+        print("-", note)
+
+

@@ -1,0 +1,10 @@
+{
+  "wards": 244,
+  "trip_weighted_mape_pct": 8.3,
+  "trip_weighted_bias_pct": 8.3,
+  "median_abs_error_pct": 7.9,
+  "observed_fare_per_km": 17.78,
+  "predicted_fare_per_km": 19.26,
+  "source": "github.com/scariadon5/Namma-Yatri-Pricing-MLOPS- data/raw/namma_yatri.csv (MIT)",
+  "note": "Ward averages mix trip lengths and vehicle types; this checks calibration only."
+}

@@ -1,0 +1,266 @@
+﻿from app.routing.journey_schema import build_journey
+
+
+def _tag_legs(legs, transport_type):
+    """Preserve original leg fields and identify transport type."""
+    return [
+        {
+            "type": transport_type,
+            **leg
+        }
+        for leg in (legs or [])
+    ]
+
+
+def adapt_walking_metro(result):
+    """Convert Walking + Metro planner output."""
+
+    if result.get("status") != "success":
+        return []
+
+    metro = result.get("metro_journey", {})
+    origin = result.get("origin_metro", {})
+    destination = result.get("destination_metro", {})
+
+    legs = [
+        {
+            "type": "walking",
+            "segment": "origin_access",
+            "details": origin
+        }
+    ]
+
+    legs.extend(
+        _tag_legs(metro.get("legs", []), "metro")
+    )
+
+    legs.append({
+        "type": "walking",
+        "segment": "destination_egress",
+        "details": destination
+    })
+
+    journey = build_journey(
+        mode="Walking + Metro",
+        duration_minutes=result.get(
+            "total_estimated_duration_minutes"
+        ),
+        legs=legs,
+        walking_distance_m=result.get(
+            "total_estimated_walking_metres"
+        ),
+        fare=result.get("metro_fare"),
+        transfers=max(
+            0, len(metro.get("legs", [])) - 1
+        ),
+        data_sources=["OSM walking network", "Metro GTFS"],
+        limitations=result.get("limitations", []),
+        raw_details=result
+    )
+
+    return [journey]
+
+
+def adapt_bmtc_journeys(
+    result,
+    fares=None,
+    emissions=None
+):
+    """Convert best and alternative BMTC journeys."""
+
+    if result.get("status") != "success":
+        return []
+
+    candidates = []
+
+    if result.get("best_journey"):
+        candidates.append(result["best_journey"])
+
+    candidates.extend(
+        result.get("alternative_journeys", [])
+    )
+
+    journeys = []
+
+    for index, candidate in enumerate(candidates):
+        bus = candidate.get("bmtc_journey", {})
+        bus_legs = bus.get("legs", [])
+
+        legs = []
+
+        legs.extend(
+            _tag_legs(bus_legs, "bmtc_bus")
+        )
+
+        origin_access = candidate.get("origin_access", {})
+        destination_egress = candidate.get(
+            "destination_egress", {}
+        )
+
+        legs.insert(0, {
+            "type": "walking",
+            "segment": "origin_access",
+            "details": origin_access
+        })
+
+        legs.append({
+            "type": "walking",
+            "segment": "destination_egress",
+            "details": destination_egress
+        })
+
+        walking_distance = (
+            (origin_access.get("distance_m") or 0)
+            + (destination_egress.get("distance_m") or 0)
+        )
+
+        journey = build_journey(
+            mode="BMTC Bus",
+            duration_minutes=candidate.get(
+                "total_estimated_duration_minutes"
+            ),
+            legs=legs,
+            walking_distance_m=round(walking_distance, 1),
+            fare=(
+                fares[index]
+                if fares and index < len(fares)
+                else None
+            ),
+            emissions=(
+                emissions[index]
+                if emissions and index < len(emissions)
+                else None
+            ),
+            transfers=max(0, len(bus_legs) - 1),
+            data_sources=["BMTC GTFS"],
+            limitations=[
+                "Scheduled BMTC timetable; no live bus positions."
+            ],
+            raw_details=candidate
+        )
+
+        journeys.append(journey)
+
+    return journeys
+
+
+def adapt_bmtc_metro_journeys(result):
+    """Convert actual BMTC + Metro planner results."""
+
+    if result.get("status") != "success":
+        return []
+
+    candidates = []
+
+    if result.get("best_journey"):
+        candidates.append(result["best_journey"])
+
+    candidates.extend(
+        result.get("alternative_journeys", [])
+    )
+
+    journeys = []
+
+    for candidate in candidates:
+        bmtc = candidate.get("bmtc_journey", {})
+        metro = candidate.get("metro_journey", {})
+
+        bus_legs = bmtc.get("legs", [])
+        metro_legs = metro.get("legs", [])
+
+        interchange = candidate.get("interchange", {})
+        destination_metro = candidate.get(
+            "destination_metro", {}
+        )
+
+        total_walking = candidate.get(
+            "total_estimated_walking_metres"
+        )
+
+        interchange_walking = interchange.get(
+            "walking_distance_m"
+        )
+
+        destination_walking = destination_metro.get(
+            "walking_distance_m"
+        )
+
+        origin_walking = None
+
+        if (
+            total_walking is not None
+            and interchange_walking is not None
+            and destination_walking is not None
+        ):
+            origin_walking = round(
+                total_walking
+                - interchange_walking
+                - destination_walking,
+                1
+            )
+
+            if origin_walking < 0:
+                raise ValueError(
+                    "Walking-distance components exceed total walking."
+                )
+
+        legs = [
+            {
+                "type": "walking",
+                "segment": "origin_access",
+                "distance_m": origin_walking,
+                "details": {
+                    "source": "Derived from planner walking-distance total"
+                }
+            }
+        ]
+
+        legs.extend(
+            _tag_legs(bus_legs, "bmtc_bus")
+        )
+
+        legs.append({
+            "type": "walking",
+            "segment": "bmtc_metro_interchange",
+            "distance_m": interchange_walking,
+            "details": interchange
+        })
+
+        legs.extend(
+            _tag_legs(metro_legs, "metro")
+        )
+
+        legs.append({
+            "type": "walking",
+            "segment": "destination_egress",
+            "distance_m": destination_walking,
+            "details": destination_metro
+        })
+
+        transfers = (
+            max(0, len(bus_legs) - 1)
+            + 1
+            + max(0, len(metro_legs) - 1)
+        )
+
+        journey = build_journey(
+            mode="BMTC + Metro",
+            duration_minutes=candidate.get(
+                "total_estimated_duration_minutes"
+            ),
+            legs=legs,
+            walking_distance_m=total_walking,
+            fare=candidate.get("fare"),
+            emissions=candidate.get("emissions"),
+            transfers=transfers,
+            data_sources=["BMTC GTFS", "Metro GTFS", "OSM walking network"],
+            limitations=[
+                candidate.get("data_warning", ""),
+                *result.get("limitations", [])
+            ],
+            raw_details=candidate
+        )
+
+        journeys.append(journey)
+
+    return journeys

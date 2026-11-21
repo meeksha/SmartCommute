@@ -1,0 +1,12 @@
+{
+  "source": "REPLACE WITH OFFICIAL BMTC AND BMRCL TARIFF REFERENCES",
+  "effective_date": "YYYY-MM-DD",
+  "bmtc_feeder_fares_inr": {"1": null, "2": null},
+  "metro_fare_key": "Electronic City|Goraguntepalya",
+  "metro_journey_fares_inr": {"Electronic City|Goraguntepalya": null},
+  "notes": [
+    "Null means unknown. Never enter zero as a placeholder.",
+    "BMTC fare revision reported effective 5 November 2026; public reports do not establish exact fares for these two feeder trips.",
+    "Enter the full Metro origin-destination fare from BMRCL's official fare enquiry/app."
+  ]
+}
